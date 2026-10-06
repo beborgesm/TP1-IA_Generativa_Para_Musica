@@ -2,9 +2,8 @@ import random
 from collections import defaultdict
 from music21 import corpus
 import pretty_midi
+import argparse
 
-ORDEM = 2
-SEMENTE = 1
 NUM_CORAIS = 40
 BEATS_TOTAIS = 128   # 32 compassos de 4/4 (1 beat = 1 semínima)
 
@@ -70,9 +69,14 @@ def salvar_midi(melodia, nome_arquivo, bpm=90):
 
 
 if __name__ == "__main__":
-    random.seed(SEMENTE)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ordem", type=int, default=2)
+    parser.add_argument("--semente", type=int, default=1)
+    args = parser.parse_args()
+
+    random.seed(args.semente)
     melodias = carregar_melodias()
-    transicoes = treinar(melodias, ORDEM)
-    melodia = gerar(transicoes, ORDEM, BEATS_TOTAIS)
-    salvar_midi(melodia, f"musica_ordem{ORDEM}_seed{SEMENTE}.mid")
+    transicoes = treinar(melodias, args.ordem)
+    melodia = gerar(transicoes, args.ordem, BEATS_TOTAIS)
+    salvar_midi(melodia, f"musica_ordem{args.ordem}_seed{args.semente}.mid")
     print("Gerado:", len(melodia), "notas")
