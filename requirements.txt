@@ -1,2 +1,2 @@
-music21
-pretty_midi
+music21==10.5.0
+pretty_midi==0.2.11.post0
