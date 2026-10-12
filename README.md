@@ -117,4 +117,5 @@ Seguindo as regras do enunciado, utilizei o Google Gemini como apoio consultivo,
 
 A concepção da arquitetura, a implementação dos scripts principais (`corpus_dados.py` e `gerar.py`) e a redação definitiva do resumo científico são de minha autoria.
 
-- **Link da conversa:** [Cole aqui o link público da conversa]
+- **Link da conversa:** 
+https://share.gemini.google/ghlLLD5D713f
